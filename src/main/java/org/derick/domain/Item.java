@@ -1,4 +1,4 @@
-package org.derick;
+package org.derick.domain;
 
 public abstract class Item {
 }
