@@ -13,10 +13,15 @@ public abstract class User {
     protected String Id;
     @Setter protected String name;
     @Setter protected List<Item> borrowedItems;
-    protected int borrowingLimit;
+
+    private static int nextId = 1;
 
     public User(String name, List<Item> borrowedItems) {
+        this.Id = String.format("%04d", nextId++);
         this.name = name;
         this.borrowedItems = new ArrayList<>();
     }
+
+
+    public abstract int getBorrowingLimit();
 }
