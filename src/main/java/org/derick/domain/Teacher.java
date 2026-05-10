@@ -14,8 +14,8 @@ public class Teacher extends User {
         super(Id, name, borrowedItems);
     }
 
-    public Teacher(String name, List<Item> borrowedItems) {
-        super(name, borrowedItems);
+    public Teacher(String name) {
+        super(name);
     }
 
     @Override

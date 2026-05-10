@@ -13,7 +13,7 @@ public class Admin extends User {
         super(Id, name, borrowedItems);
     }
 
-    public Admin(String name, List<Item> borrowedItems) {
-        super(name, borrowedItems);
+    public Admin(String name) {
+        super(name);
     }
 }

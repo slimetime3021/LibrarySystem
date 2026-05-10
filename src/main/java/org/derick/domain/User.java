@@ -17,7 +17,7 @@ public abstract class User {
     private static int nextId = 1;
     private static final int borrowingLimit = 0;
 
-    public User(String name, List<Item> borrowedItems) {
+    public User(String name) {
         this.Id = String.format("%04d", nextId++);
         this.name = name;
         this.borrowedItems = new ArrayList<>();
