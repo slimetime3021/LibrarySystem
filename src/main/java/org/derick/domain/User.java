@@ -15,6 +15,7 @@ public abstract class User {
     @Setter protected List<Item> borrowedItems;
 
     private static int nextId = 1;
+    private static final int borrowingLimit = 0;
 
     public User(String name, List<Item> borrowedItems) {
         this.Id = String.format("%04d", nextId++);
@@ -23,5 +24,7 @@ public abstract class User {
     }
 
 
-    public abstract int getBorrowingLimit();
+    public int getBorrowingLimit(){
+        return borrowingLimit;
+    }
 }
