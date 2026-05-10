@@ -1,0 +1,25 @@
+package org.derick.domain;
+
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import java.util.List;
+
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class Student extends User {
+    private static final int borrowingLimit = 5;
+
+    public Student(String Id, String name, List<Item> borrowedItems) {
+        super(Id, name, borrowedItems);
+    }
+
+    public Student(String name, List<Item> borrowedItems) {
+        super(name, borrowedItems);
+    }
+
+    @Override
+    public int getBorrowingLimit() {
+        return borrowingLimit;
+    }
+}
