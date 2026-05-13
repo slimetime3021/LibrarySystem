@@ -18,20 +18,20 @@ public class Book extends Item {
         if (!isValidISBN(ISBN)) {
             throw new IllegalArgumentException("ISBN is invalid");
         }
-        super(Id, title, status);
         this.ISBN = ISBN;
         this.author = author;
         this.genre = genre;
+        super(Id, title, status);
     }
 
     public Book(String title, Status status, String ISBN, String author, String genre) {
         if (!isValidISBN(ISBN)) {
             throw new IllegalArgumentException("ISBN is invalid");
         }
-        super(title, status);
         this.ISBN = ISBN;
         this.author = author;
         this.genre = genre;
+        super(title, status);
     }
 
     public static boolean isValidISBN(String isbn) {

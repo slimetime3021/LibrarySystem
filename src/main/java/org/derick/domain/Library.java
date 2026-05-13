@@ -10,13 +10,10 @@ import java.util.*;
 
 @Getter
 public class Library {
-    @Getter private static Map<String, Item> idItem;
-    @Getter private static List<User> users;
 
 
 
     public static void initItems() {
-        idItem = new HashMap<>();
         File file = new File(Constants.itemFilePath);
         try(Scanner scanner = new Scanner(file)) {
             while(scanner.hasNextLine()) {
@@ -31,7 +28,6 @@ public class Library {
                             Integer.parseInt(elements[4]), elements[5]);
                     default -> throw new IllegalStateException("Unexpected value: " + elements[0]);
                 };
-                idItem.put(item.getId(), item);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -41,7 +37,6 @@ public class Library {
     }
 
     public static void initUsers() {
-        users = new ArrayList<>();
         File file = new File(Constants.userFilePath);
         try(Scanner scanner = new Scanner(file)) {
             while(scanner.hasNextLine()) {
@@ -53,7 +48,6 @@ public class Library {
                     case "Admin" -> new Admin(elements[1], elements[2], idToItem(elements));
                     default -> throw new IllegalStateException("Unexpected value: " + elements[0]);
                 };
-                users.add(user);
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);

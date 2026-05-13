@@ -14,14 +14,14 @@ public class Magazine extends Item {
     private String publisher;
 
     public Magazine(String Id, String title, Status status, int issueNumber, String publisher) {
-        super(Id, title, status);
         this.issueNumber = issueNumber;
         this.publisher = publisher;
+        super(Id, title, status);
     }
 
     public Magazine(String title, Status status, int issueNumber, String publisher) {
-        super(title, status);
         this.issueNumber = issueNumber;
         this.publisher = publisher;
+        super(title, status);
     }
 }

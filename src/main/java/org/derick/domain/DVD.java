@@ -14,14 +14,14 @@ public class DVD extends Item {
     private int minutes;
 
     public DVD(String Id, String title, Status status, String director, int minutes) {
-        super(Id, title, status);
         this.director = director;
         this.minutes = minutes;
+        super(Id, title, status);
     }
 
     public DVD(String title, Status status, String director, int minutes) {
-        super(title, status);
         this.director = director;
         this.minutes = minutes;
+        super(title, status);
     }
 }
