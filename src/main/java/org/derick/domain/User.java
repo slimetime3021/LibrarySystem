@@ -28,7 +28,6 @@ public abstract class User {
         this(String.format("%04d", nextId),  name, new ArrayList<>());
     }
 
-
     public int getBorrowingLimit(){
         return borrowingLimit;
     }

@@ -53,7 +53,21 @@ public class Library {
         }
     }
 
+    public Item searchByTitleBorrowable(String title) {
+        return Item.getIdItem().values().stream()
+                .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
+                .filter(item -> item.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Item with title " + title + " not found"));
+    }
 
+    public Item searchByAuthorBorrowable(String author) {
+        return Item.getIdItem().values().stream()
+                .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
+                .filter(item -> Library.getAuthorType(item).equalsIgnoreCase(author))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Item with author " + author + " not found"));
+    }
 
     private static Item.Status stringToStatus(String string) {
         return switch (string) {
@@ -73,5 +87,14 @@ public class Library {
         }
 
         return items;
+    }
+
+    private static String getAuthorType(Item item) {
+        return switch (item) {
+            case Book book -> book.getAuthor();
+            case DVD dvd -> dvd.getDirector();
+            case Magazine magazine -> magazine.getPublisher();
+            default -> throw new IllegalStateException("Unexpected value: " + item);
+        };
     }
 }
