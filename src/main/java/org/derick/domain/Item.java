@@ -35,21 +35,24 @@ public abstract class Item  {
 
     public abstract String save();
 
-    public class MultiCriteriaItemComparator implements Comparator<Item> {
-        private final String criteria;
-
-        public MultiCriteriaItemComparator(String criteria) {
-            this.criteria = criteria;
-        }
-
+    public static class IdComparator implements Comparator<Item> {
         @Override
         public int compare(Item o1, Item o2) {
-            return switch (criteria) {
-              case "id" -> o1.getId().compareTo(o2.getId());
-              case "title" -> o1.getTitle().compareTo(o2.getTitle());
-              case "status" -> o1.getStatus().compareTo(o2.getStatus());
-              default -> 0;
-            };
+            return o1.getId().compareTo(o2.getId());
+        }
+    }
+
+    public static class TitleComparator implements Comparator<Item> {
+        @Override
+        public int compare(Item o1, Item o2) {
+            return o1.getTitle().compareTo(o2.getTitle());
+        }
+    }
+
+    public static class StatusComparator implements Comparator<Item> {
+        @Override
+        public int compare(Item o1, Item o2) {
+            return o1.getStatus().compareTo(o2.getStatus());
         }
     }
 }
