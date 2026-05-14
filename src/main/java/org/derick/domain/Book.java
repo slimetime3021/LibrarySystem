@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Comparator;
+
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @Getter
@@ -99,5 +101,19 @@ public class Book extends Item {
     @Override
     public String save() {
         return String.format("Book,%s,%s,%s,%s,%s,%s", id, title, status, ISBN, author, genre);
+    }
+
+    public static class AuthorComparator implements Comparator<Book> {
+        @Override
+        public int compare(Book o1, Book o2) {
+            return o1.getAuthor().compareTo(o2.getAuthor());
+        }
+    }
+
+    public static class GenreComparator implements Comparator<Book> {
+        @Override
+        public int compare(Book o1, Book o2) {
+            return o1.getGenre().compareTo(o2.getGenre());
+        }
     }
 }
