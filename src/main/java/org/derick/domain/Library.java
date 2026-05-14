@@ -66,6 +66,19 @@ public class Library {
         return  true;
     }
 
+    public boolean returnItem(User user, Item item) {
+        if (user.getBorrowedItems().isEmpty()) {
+            throw new IllegalArgumentException("User has no borrowed items.");
+        } else if (!(user.getBorrowedItems().contains(item))) {
+            throw new IllegalArgumentException("User has not borrowed the item.");
+        }
+
+        item.setStatus(Item.Status.IN_STORE);
+        user.getBorrowedItems().remove(item);
+
+        return  true;
+    }
+
     public Item searchByTitleBorrowable(String title) {
         return Item.getIdItem().values().stream()
                 .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
