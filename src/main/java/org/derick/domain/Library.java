@@ -10,9 +10,6 @@ import java.util.*;
 
 @Getter
 public class Library {
-
-
-
     public static void initItems() {
         File file = new File(Constants.itemFilePath);
         try(Scanner scanner = new Scanner(file)) {
@@ -72,7 +69,7 @@ public class Library {
         List<Item> items = new ArrayList<>();
 
         for (int i = startIdx; i < elements.length; i++) {
-            items.add(idItem.get(elements[i]));
+            items.add(Item.getIdItem().get(elements[i]));
         }
 
         return items;
