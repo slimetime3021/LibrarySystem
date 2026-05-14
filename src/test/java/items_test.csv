@@ -1,0 +1,9 @@
+Book,0001,Clean Code,IN_STORE,9783161484100,Robert Martin,Technology
+Book,0002,The Pragmatic Programmer,BORROWED,0306406152,David Thomas,Technology
+Book,0003,Design Patterns,LOST,9783161484100,Gang of Four,Technology
+DVD,0004,Inception,IN_STORE,Christopher Nolan,148
+DVD,0005,The Matrix,BORROWED,The Wachowskis,136
+DVD,0006,Parasite,LOST,Bong Joon-ho,132
+Magazine,0007,National Geographic,IN_STORE,42,Nat Geo Society
+Magazine,0008,Time,BORROWED,101,Time USA LLC
+Magazine,0009,Wired,LOST,5,Conde Nast
