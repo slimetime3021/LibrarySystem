@@ -53,6 +53,19 @@ public class Library {
         }
     }
 
+    public boolean borrow(User user, Item item) {
+        if (user.getBorrowedItems().size() >= user.getBorrowingLimit()) {
+            throw new IllegalStateException("User has already borrowed the maximum amount of items.");
+        } else if (user instanceof Student && !(item instanceof Book)) {
+            throw new IllegalArgumentException("Students may only borrow books");
+        }
+
+        item.setStatus(Item.Status.BORROWED);
+        user.getBorrowedItems().add(item);
+
+        return  true;
+    }
+
     public Item searchByTitleBorrowable(String title) {
         return Item.getIdItem().values().stream()
                 .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
