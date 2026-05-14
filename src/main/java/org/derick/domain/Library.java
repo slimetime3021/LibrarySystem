@@ -24,7 +24,7 @@ public class Library {
                     case "Magazine" -> new Magazine(elements[1], elements[2], stringToStatus(elements[3]),
                             Integer.parseInt(elements[4]), elements[5]);
                     default -> throw new IllegalStateException("Unexpected value: " + elements[0]);
-                };
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -44,7 +44,7 @@ public class Library {
                     case "Teacher" -> new Teacher(elements[1], elements[2], idToItem(elements));
                     case "Admin" -> new Admin(elements[1], elements[2], idToItem(elements));
                     default -> throw new IllegalStateException("Unexpected value: " + elements[0]);
-                };
+                }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
