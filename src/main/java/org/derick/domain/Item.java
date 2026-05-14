@@ -2,13 +2,14 @@ package org.derick.domain;
 
 import lombok.*;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 @ToString
 @EqualsAndHashCode
 @Getter
-public abstract class Item {
+public abstract class Item  {
     protected String id;
     @Setter protected String title;
     @Setter protected Status status;
@@ -33,4 +34,22 @@ public abstract class Item {
     }
 
     public abstract String save();
+
+    public class MultiCriteriaItemComparator implements Comparator<Item> {
+        private final String criteria;
+
+        public MultiCriteriaItemComparator(String criteria) {
+            this.criteria = criteria;
+        }
+
+        @Override
+        public int compare(Item o1, Item o2) {
+            return switch (criteria) {
+              case "id" -> o1.getId().compareTo(o2.getId());
+              case "title" -> o1.getTitle().compareTo(o2.getTitle());
+              case "status" -> o1.getStatus().compareTo(o2.getStatus());
+              default -> 0;
+            };
+        }
+    }
 }
