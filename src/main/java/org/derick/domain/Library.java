@@ -16,7 +16,7 @@ public class Library {
             while(scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] elements = line.split(",");
-                Item item = switch (elements[0]) {
+                switch (elements[0]) {
                     case "Book" -> new Book(elements[1], elements[2], stringToStatus(elements[3]),
                             elements[4],  elements[5], elements[6]);
                     case "DVD" -> new DVD(elements[1], elements[2], stringToStatus(elements[3]), elements[4],
@@ -39,7 +39,7 @@ public class Library {
             while(scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] elements = line.split(",");
-                User user = switch (elements[0]) {
+                switch (elements[0]) {
                     case "Student" -> new Student(elements[1], elements[2], idToItem(elements));
                     case "Teacher" -> new Teacher(elements[1], elements[2], idToItem(elements));
                     case "Admin" -> new Admin(elements[1], elements[2], idToItem(elements));
