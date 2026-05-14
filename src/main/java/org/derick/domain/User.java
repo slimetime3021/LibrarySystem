@@ -3,6 +3,7 @@ package org.derick.domain;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @ToString
@@ -42,5 +43,19 @@ public abstract class User {
         }
 
         return id.toString();
+    }
+
+    public static class IdComparator implements Comparator<User> {
+        @Override
+        public int compare(User o1, User o2) {
+            return o1.getId().compareTo(o2.getId());
+        }
+    }
+
+    public static class NameComparator implements Comparator<User> {
+        @Override
+        public int compare(User o1, User o2) {
+            return o1.getName().compareTo(o2.getName());
+        }
     }
 }
