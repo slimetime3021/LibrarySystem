@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-@Getter
 public class Library {
     public static void initItems() {
         File file = new File(Constants.itemFilePath);
