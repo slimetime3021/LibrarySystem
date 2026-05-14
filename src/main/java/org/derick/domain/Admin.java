@@ -40,4 +40,12 @@ public class Admin extends User implements Reportable {
         System.out.println("In Store Items " + InStoreItems +
                 "\nBorrowed Items: " + borrowedItems + "\nLost Items " + LostItems);
     }
+
+    public void backupUsers() {
+        Library.updateUsers();
+    }
+
+    public void backupItems() {
+        Library.updateItems();
+    }
 }
