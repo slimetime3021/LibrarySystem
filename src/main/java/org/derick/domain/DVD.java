@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Comparator;
+
 @EqualsAndHashCode(callSuper=true)
 @ToString(callSuper=true)
 @Getter
@@ -28,5 +30,19 @@ public class DVD extends Item {
     @Override
     public String save() {
         return String.format("DVD,%s,%s,%s,%s,%d", id, title, status, director, minutes);
+    }
+
+    public static class DirectorComparator implements Comparator<DVD> {
+        @Override
+        public int compare(DVD o1, DVD o2) {
+            return o1.getDirector().compareTo(o2.getDirector());
+        }
+    }
+
+    public static class MinutesComparator implements Comparator<DVD> {
+        @Override
+        public int compare(DVD o1, DVD o2) {
+            return o1.getMinutes() - o2.getMinutes();
+        }
     }
 }
