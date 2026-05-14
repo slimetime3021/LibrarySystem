@@ -31,4 +31,16 @@ public abstract class User {
     public int getBorrowingLimit(){
         return borrowingLimit;
     }
+
+    public abstract String save();
+
+    public String getBorrowedItemsId() {
+        StringBuilder id = new StringBuilder();
+
+        for (Item item : borrowedItems) {
+            id.append(item.getId()).append(",");
+        }
+
+        return id.toString();
+    }
 }

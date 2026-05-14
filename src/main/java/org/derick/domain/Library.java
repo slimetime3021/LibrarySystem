@@ -5,6 +5,7 @@ import org.derick.util.Constants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -38,7 +39,7 @@ public class Library {
         try(Scanner scanner = new Scanner(file)) {
             while(scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] elements = line.split(",");
+                String[] elements = line.split(",", -1);
                 switch (elements[0]) {
                     case "Student" -> new Student(elements[1], elements[2], idToItem(elements));
                     case "Teacher" -> new Teacher(elements[1], elements[2], idToItem(elements));
@@ -48,6 +49,30 @@ public class Library {
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateItems() {
+        File file = new File(Constants.itemFilePath);
+
+        try(FileWriter fileWriter = new FileWriter(file, true)) {
+            for (Item item : Item.getIdItem().values()) {
+                fileWriter.write(item.save());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateUsers() {
+        File file = new File(Constants.userFilePath);
+
+        try(FileWriter fileWriter = new FileWriter(file, true)) {
+            for (User user : User.getUsers()) {
+                fileWriter.write(user.save());
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -105,10 +130,13 @@ public class Library {
     }
 
     private static List<Item> idToItem(String[] elements) {
-        final int startIdx = 2;
+        final int startIdx = 3;
         List<Item> items = new ArrayList<>();
 
         for (int i = startIdx; i < elements.length; i++) {
+            if (elements[i].isEmpty()) {
+                continue;
+            }
             items.add(Item.getIdItem().get(elements[i]));
         }
 

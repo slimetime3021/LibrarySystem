@@ -95,4 +95,9 @@ public class Book extends Item {
 
         return sum % 10 == 0;
     }
+
+    @Override
+    public String save() {
+        return String.format("Book,%s,%s,%s,%s,%s,%s", id, title, status, ISBN, author, genre);
+    }
 }

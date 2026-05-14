@@ -24,4 +24,9 @@ public class Magazine extends Item {
         this.publisher = publisher;
         super(title, status);
     }
+
+    @Override
+    public String save() {
+        return String.format("Magazine,%s,%s,%s,%d,%s", id, title, status, issueNumber, publisher);
+    }
 }

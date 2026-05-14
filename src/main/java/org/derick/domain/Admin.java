@@ -16,4 +16,9 @@ public class Admin extends User {
     public Admin(String name) {
         super(name);
     }
+
+    @Override
+    public String save() {
+        return String.format("Teacher,%s,%s,%s", Id, name, this.getBorrowedItemsId());
+    }
 }

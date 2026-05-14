@@ -22,4 +22,9 @@ public class Student extends User {
     public int getBorrowingLimit() {
         return borrowingLimit;
     }
+
+    @Override
+    public String save() {
+        return String.format("Student,%s,%s,%s", Id, name, this.getBorrowedItemsId());
+    }
 }

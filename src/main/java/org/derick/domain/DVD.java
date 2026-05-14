@@ -24,4 +24,9 @@ public class DVD extends Item {
         this.minutes = minutes;
         super(title, status);
     }
+
+    @Override
+    public String save() {
+        return String.format("DVD,%s,%s,%s,%s,%d", id, title, status, director, minutes);
+    }
 }

@@ -31,4 +31,6 @@ public abstract class Item {
     public enum Status {
         BORROWED, IN_STORE, LOST
     }
+
+    public abstract String save();
 }
