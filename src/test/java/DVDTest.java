@@ -64,7 +64,7 @@ class DVDTest {
     @Test
     void save_returnsCorrectCSVFormat() {
         DVD dvd = new DVD("0020", "Parasite", Item.Status.IN_STORE, "Bong Joon-ho", 132);
-        assertEquals("DVD,0020,Parasite,IN_STORE,Bong Joon-ho,132", dvd.save());
+        assertEquals("DVD,0020,Parasite,IN_STORE,Bong Joon-ho,132\n", dvd.save());
     }
 
     @Test

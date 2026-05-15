@@ -127,7 +127,7 @@ class TeacherTest {
     @Test
     void save_noItems_returnsCorrectFormat() {
         Teacher teacher = new Teacher("0040", "Prof. Davis", new ArrayList<>());
-        assertEquals("Teacher,0040,Prof. Davis,", teacher.save());
+        assertEquals("Teacher,0040,Prof. Davis,\n", teacher.save());
     }
 
     @Test

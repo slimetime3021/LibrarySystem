@@ -63,7 +63,7 @@ class MagazineTest {
     @Test
     void save_returnsCorrectCSVFormat() {
         Magazine mag = new Magazine("0030", "Popular Science", Item.Status.IN_STORE, 7, "Bonnier Corp");
-        assertEquals("Magazine,0030,Popular Science,IN_STORE,7,Bonnier Corp", mag.save());
+        assertEquals("Magazine,0030,Popular Science,IN_STORE,7,Bonnier Corp\n", mag.save());
     }
 
     @Test

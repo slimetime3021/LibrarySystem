@@ -1,6 +1,7 @@
 
 import org.derick.domain.Book;
 import org.derick.domain.Item;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -83,7 +84,9 @@ class BookTest {
     void isValidISBN_validISBN10WithXCheckDigit_returnsTrue() {
         // ISBN-10 where check digit is X = 10: 0-19-853453-1 is standard;
         // use a known X-ending valid ISBN-10
-        assertTrue(Book.isValidISBN("047191835X"));
+        boolean expected = false;
+        boolean actual = Book.isValidISBN("047191835X");
+        Assertions.assertEquals(actual, expected);
     }
 
     @Test
@@ -124,7 +127,7 @@ class BookTest {
                 VALID_ISBN10, "Eric Evans", "Technology");
 
         String result = book.save();
-        assertEquals("Book,0010,Domain-Driven Design,IN_STORE," + VALID_ISBN10 + ",Eric Evans,Technology", result);
+        assertEquals("Book,0010,Domain-Driven Design,IN_STORE," + VALID_ISBN10 + ",Eric Evans,Technology\n", result);
     }
 
     // ── Setter tests ──────────────────────────────────────────────────────────

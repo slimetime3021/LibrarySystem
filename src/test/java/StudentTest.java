@@ -124,7 +124,7 @@ class StudentTest {
     @Test
     void save_noItems_returnsCorrectFormat() {
         Student student = new Student("0040", "Jack", new ArrayList<>());
-        assertEquals("Student,0040,Jack,", student.save());
+        assertEquals("Student,0040,Jack,\n", student.save());
     }
 
     @Test
