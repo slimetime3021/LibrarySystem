@@ -56,7 +56,7 @@ public class Library {
     public static void updateItems() {
         File file = new File(Constants.itemFilePath);
 
-        try(FileWriter fileWriter = new FileWriter(file, true)) {
+        try(FileWriter fileWriter = new FileWriter(file, false)) {
             for (Item item : Item.getIdItem().values()) {
                 fileWriter.write(item.save());
             }
@@ -68,7 +68,8 @@ public class Library {
     public static void updateUsers() {
         File file = new File(Constants.userFilePath);
 
-        try(FileWriter fileWriter = new FileWriter(file, true)) {
+        try(FileWriter fileWriter = new FileWriter(file, false)) {
+
             for (User user : User.getUsers()) {
                 fileWriter.write(user.save());
             }
@@ -77,7 +78,7 @@ public class Library {
         }
     }
 
-    public boolean borrow(User user, Item item) {
+    public static boolean borrow(User user, Item item) {
         if (user.getBorrowedItems().size() >= user.getBorrowingLimit()) {
             throw new IllegalStateException("User has already borrowed the maximum amount of items.");
         } else if (user instanceof Student && !(item instanceof Book)) {
@@ -90,7 +91,7 @@ public class Library {
         return  true;
     }
 
-    public boolean returnItem(User user, Item item) {
+    public static boolean returnItem(User user, Item item) {
         if (user.getBorrowedItems().isEmpty()) {
             throw new IllegalArgumentException("User has no borrowed items.");
         } else if (!(user.getBorrowedItems().contains(item))) {
@@ -103,7 +104,7 @@ public class Library {
         return  true;
     }
 
-    public Item searchByTitleBorrowable(String title) {
+    public static Item searchByTitleBorrowable(String title) {
         return Item.getIdItem().values().stream()
                 .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
                 .filter(item -> item.getTitle().equalsIgnoreCase(title))
@@ -111,7 +112,7 @@ public class Library {
                 .orElseThrow(() -> new IllegalStateException("Item with title " + title + " not found"));
     }
 
-    public Item searchByAuthorBorrowable(String author) {
+    public static Item searchByAuthorBorrowable(String author) {
         return Item.getIdItem().values().stream()
                 .filter(item -> item.getStatus().equals(Item.Status.IN_STORE))
                 .filter(item -> Library.getAuthorType(item).equalsIgnoreCase(author))
