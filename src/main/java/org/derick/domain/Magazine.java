@@ -29,7 +29,7 @@ public class Magazine extends Item {
 
     @Override
     public String save() {
-        return String.format("Magazine,%s,%s,%s,%d,%s", id, title, status, issueNumber, publisher);
+        return String.format("Magazine,%s,%s,%s,%d,%s\n", id, title, status, issueNumber, publisher);
     }
 
     public static class IssueNumberComparator implements Comparator<Magazine> {

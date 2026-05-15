@@ -25,6 +25,6 @@ public class Student extends User {
 
     @Override
     public String save() {
-        return String.format("Student,%s,%s,%s", Id, name, this.getBorrowedItemsId());
+        return String.format("Student,%s,%s,%s\n", Id, name, this.getBorrowedItemsId());
     }
 }

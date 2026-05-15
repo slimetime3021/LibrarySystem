@@ -20,7 +20,7 @@ public class Admin extends User implements Reportable {
 
     @Override
     public String save() {
-        return String.format("Admin,%s,%s,%s", Id, name, this.getBorrowedItemsId());
+        return String.format("Admin,%s,%s,%s\n", Id, name, this.getBorrowedItemsId());
     }
 
     @Override

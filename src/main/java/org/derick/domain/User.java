@@ -23,6 +23,7 @@ public abstract class User {
         Id = id;
         this.name = name;
         this.borrowedItems = borrowedItems;
+        users.add(this);
     }
 
     public User(String name) {

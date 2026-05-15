@@ -29,7 +29,7 @@ public class DVD extends Item {
 
     @Override
     public String save() {
-        return String.format("DVD,%s,%s,%s,%s,%d", id, title, status, director, minutes);
+        return String.format("DVD,%s,%s,%s,%s,%d\n", id, title, status, director, minutes);
     }
 
     public static class DirectorComparator implements Comparator<DVD> {

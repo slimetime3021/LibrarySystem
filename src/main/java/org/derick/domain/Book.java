@@ -100,7 +100,7 @@ public class Book extends Item {
 
     @Override
     public String save() {
-        return String.format("Book,%s,%s,%s,%s,%s,%s", id, title, status, ISBN, author, genre);
+        return String.format("Book,%s,%s,%s,%s,%s,%s\n", id, title, status, ISBN, author, genre);
     }
 
     public static class AuthorComparator implements Comparator<Book> {
