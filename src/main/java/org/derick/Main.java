@@ -5,6 +5,8 @@ import org.derick.domain.*;
 public class Main {
     static void main() {
         Admin admin = new Admin("Rick");
+        Student student = new Student("Mike");
+        Teacher teacher = new Teacher("Jim");
         Book book1 = new Book("JAVA GUIDE", Item.Status.IN_STORE,
                 "978-3-16-148410-0", "Kim", "guide");
         Book book2 = new Book("JAVA GUIDE2", Item.Status.LOST,
@@ -13,9 +15,8 @@ public class Main {
         DVD dvd2 = new DVD("FNF2", Item.Status.IN_STORE, "Mark", 90);
         Magazine magazine1 = new Magazine("BAt", Item.Status.LOST, 1, "fell");
         Magazine magazine2 = new Magazine("BAt2", Item.Status.BORROWED, 2, "fell");
-        admin.reportItems();
-        System.out.println(User.getUsers());
-        admin.backupItems();
+
         admin.backupUsers();
+        admin.backupItems();
     }
 }
